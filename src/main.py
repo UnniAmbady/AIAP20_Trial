@@ -1,4 +1,4 @@
-from Custum_messages import CustomMessages
+from Custom_messages import CustomMessages
 
 def main():
     # Instantiate the logger
