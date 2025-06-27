@@ -1,0 +1,21 @@
+# Ignore Python virtual environment
+venv/
+
+# Ignore Jupyter Notebook checkpoints and temp files
+**/.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# Ignore everything inside the data folder
+data/
+#Messages/
+#If I Ignore the above ACTION script will not write to GihHub folder Messages
+#If I don't ignote extra works in keeping both local and GitHub.
+
+# Ignore VS Code settings and workspace files
+.vscode/
+*.code-workspace
+
+# (Optional) Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
