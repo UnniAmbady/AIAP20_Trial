@@ -1,3 +1,4 @@
+# .github/workflows/github-actions.yaml
 name: Run main.py
 
 on:
@@ -24,8 +25,17 @@ jobs:
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           else
-            echo "No requirements.txt found, skipping."
+            echo "No requirements.txt found; skipping."
           fi
 
-      - name: Run main.py
-        run: python main.py
+      - name: Find and run main.py
+        run: |
+          # try to find main.py in the repo
+          MAIN=$(find . -maxdepth 3 -type f -name main.py | head -n1)
+          if [ -z "$MAIN" ]; then
+            echo "❌ main.py not found — here’s the full file tree:" 
+            ls -R .
+            exit 1
+          fi
+          echo "✅ Found main.py at $MAIN"
+          python "$MAIN"
